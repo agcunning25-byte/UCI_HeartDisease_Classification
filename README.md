@@ -22,7 +22,7 @@ The project followed a standard machine learning workflow, including data prepro
 
 * **Encoding and Scaling:** Categorical features were One-Hot Encoded, and numerical features were scaled using StandardScaler to prepare the data for modeling.
 
-# Modeling and Evaluation
+# 🛠️ Modeling and Evaluation
 A variety of classification algorithms were implemented and evaluated using Grid Search Cross-Validation to identify the best-performing model based on the test set Recall score, as high recall is essential for minimizing false negatives (missing a heart disease case).
 
 | Model | Libraries Used |
@@ -40,13 +40,13 @@ The Tuned Support Vector Machine demonstrated the strongest performance (in term
 | Test Recall | 97.05% |
 | Test Precision | 77.95% |
 | Test F1-Score | 86.46% |
-# Feature Importance Insights
+# 📝 Feature Importance Insights
 SHAP summary revealed the most critical predictors of heart disease:
 
-* ST_Slope (Slope of the peak exercise ST segment)
-* ChestPainType (ASY - asymptomatic)
-* Old Peak (ST (numeric value measured in depression)
-* Gender
+* `ST_Slope` (Slope of the peak exercise ST segment)
+* `ChestPainType` (ASY - asymptomatic)
+* `Oldpeak` (ST (numeric value measured in depression)
+* `Sex`
 
 # Permutation Importances
 A permutation inspection revealed the most important features for minimizing recall:
@@ -56,7 +56,7 @@ A permutation inspection revealed the most important features for minimizing rec
 * Old Peak x Resting BS x ST_Slope (an engineered feature to help the model classify in areas of high overlap)
 * Old Peak > 1.20
 
-# Conclusions
+# 💡Conclusions
 * **ST_Slope is the dominant predictor of heart disease:** Far outweighing all other features, a downsloping or flat segment during stress tests strongly indicates heart disease, while an upsloping segment signifies healthy patients.
 
 * **Patients without typical chest pain (ASY) are at higher risk:** This highlights the danger of "silent" heart disease, where factors like diabetes or severe blockage may prevent patients from feeling typical angina symptoms.
@@ -70,3 +70,10 @@ A permutation inspection revealed the most important features for minimizing rec
 └── data/
     └── heart.csv        # The original dataset used for the analysis.
 ```
+# Technologies Used
+* **Pandas and Numpy** to manipulate data
+* **Matplotlib and Seaborn** for data visualization
+* **OneHotEncoder and StandardScaler** for data preprocessing
+* **LogisticRegression, DecisionTreeClassifier, RandomForestClassifier, SVC, XGBClassifier** for modeling
+* **GridSearchCV, StratifiedKFold** for cross-validation
+* **SHAP** for model interpretability
